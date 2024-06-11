@@ -1,0 +1,44 @@
+/* Estilo para el contenedor del mapa */
+#map {
+  height: 300px; 
+  width: 100%;
+  margin-bottom: 20px; 
+}
+
+.footer-map {
+  display: flex;
+  flex-wrap: nowrap; /* Evita que los elementos se envuelvan */
+  justify-content: flex-start;
+  align-items: flex-start; 
+  margin-top: 2rem;
+}
+
+.footer-map div {
+  flex: 1;
+  min-width: 300px;
+  margin: 0.5rem;
+}
+
+.footer-map #map {
+  width: 300px; /* Ancho fijo para el mapa */
+  height: 300px; /* Altura fija para el mapa */
+}
+
+/* Ajustes adicionales para mejor visualización */
+.footer-map {
+  padding: 1rem; 
+  background-color: #f8f8f8; 
+  border-radius: 8px; 
+}
+
+.footer-map div {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);/
+  background: #ffffff; 
+  border-radius: 8px; 
+}
+
+.footer-map #map {
+  border: 2px solid #ccc; 
+  border-radius: 8px; 
+  
+}
