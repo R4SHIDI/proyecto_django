@@ -67,8 +67,7 @@ TEMPLATES = [
         },
     },
 ]
-LOGIN_REDIRECT_URL = "home"
-LOGOUT_REDIRECT_URL = "menu"
+
 
 WSGI_APPLICATION = 'sistema.wsgi.application'
 
