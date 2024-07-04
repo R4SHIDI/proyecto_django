@@ -7,6 +7,8 @@ from django.contrib.staticfiles.urls import static
 urlpatterns = [
     path('', views.index, name='index'),
     path('contacto', views.contacto, name='contacto'),
+    path('registrar', views.registrar, name='registrar'),
+    path('nosotros', views.nosotros, name='nosotros'),
     path('crud', views.crud, name='crud'),
     path('login', views.login, name='login'),
     path('tienda', views.tienda, name='tienda'),
@@ -16,6 +18,8 @@ urlpatterns = [
     path('crud/vista', views.vista, name='vista'),
     path('eliminar/<int:id>', views.eliminar, name='eliminar'),
     path('productos/editar/<int:id>', views.editar, name='editar'),
+    #url de ventas##
+    
   
 
 

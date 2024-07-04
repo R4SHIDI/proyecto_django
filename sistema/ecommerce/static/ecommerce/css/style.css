@@ -2,6 +2,12 @@
 /*VARIABLES*/
 /*gradiente de color var*/
 /*NAV BAR INICIA*/
+
+
+
+
+
+
 .bg-nav {
   background: linear-gradient(180deg, #020202 0%, rgba(255, 255, 255, 0) 100%);
   padding: 20px;

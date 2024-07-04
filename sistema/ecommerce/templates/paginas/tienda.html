@@ -12,14 +12,15 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     {% load static %}
     <link rel="stylesheet" href="{% static 'ecommerce/css/bootstrap.min.css'%}">
-    <link rel="stylesheet" href="{% static 'ecommerce/css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'ecommerce/css/productos.css'%}">
     <link rel="icon" type="image/jpg" href="../Imagenes/logo.png">
     <title>KNIFTSTYLE</title>
+    
 </head>
 
-    <body>
-        <!--NAVBAR-->
-        <div class="bg-nav">
+<body>
+        <!--navbar-->
+        <div class="bg-nav fixed-top">
             <nav class="navbar navbar-expand-sm navbar-dark">
                 <div class="container-fluid navbar-padre">
                     <nav class="navbar navbar-light">
@@ -27,6 +28,8 @@
                             <a class="navbar-brand" href="#">
                             
                                 KNIFTSTYLE
+
+
                             </a>
                         </div>
                     </nav>
@@ -38,211 +41,90 @@
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'index'%}">Inicio</a>
-                           </li>
-                           <li class="nav-item">
-                               <a class="nav-link" href="{% url 'tienda'%}">Tienda</a>
-                           </li>
-                               <li class="nav-item">
-                                   <a class="nav-link" href="{% url 'contacto' %}">sobre nosotros</a>
-                                   
-                           </li>       
-                           <li class="nav-item">
-                               <a class="nav-link" href="{% url 'crud' %}">Crud</a>
-                           </li>     
-                           
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'tienda'%}">Tienda</a>
+                            </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'contacto' %}">sobre nosotros</a>
+                                    
+                            </li>       
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'crud' %}">Crud</a>
+                            </li>                    
+                            
+
                         </ul>
+
+
                     </div>
-                    <a class="btn btn-navbar btn-primary" href="../Paginas/login.html" role="button">Ingresa</a>
-                    <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <i id="carritoContenedor" class="fa-sharp fa-solid fa-basket-shopping w-1"> 0</i>
-                    </button>
+                    <a class="btn btn-navbar btn-primary" href="{% url 'login' %}" role="button">Ingresa</a>
+                </div>   
+            
+            </nav> 
 
 
-                    <!-- MODAL DE CARRITO -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLable">Carrito de compras</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div id="modalBodyId" class="modal-body">
-                                    No tienes nada agregado todavia.
-                                </div>
-                                <div class="modal-footer footerCarrito">
-                                    <span class="precioTotal">Precio Total</span>
-                                    <p class="precioTotal"  id="precioTotal"></p>
-                                    <button type="button"  id="finalizarCompra" class="btn btn-primary btn1">Finalizar
-                                        Compra</button>
-                                    <button type="button" class="btn btn-primary btn1" id="reiniciarCarro">Reiniciar
-                                        Tienda</button> <br>
-                                    <button type="button" class="btn btn-secondary btn1"
-                                        data-bs-dismiss="modal">Cerrar</button>
-                                </div>
-                            </div>
+            
+            <section class="contenedor">
+                <!-- Contenedor de elementos -->
+                <div class="contenedor-items">
+                
+                    <div class="item">
+                        <span class="titulo-item">Zapatilla Nike </span>
+                        <img src="{% static 'ecommerce/img/nike1.jpg' %}" alt="" class="img-item">
+                        <span class="precio-item">$32.000</span>
+                        <button class="boton-item">Agregar al Carrito</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">Polera Nike</span>
+                        <img src="{% static 'ecommerce/img/nike4.jpg' %}" alt="" class="img-item">
+                        <span class="precio-item">$38.000</span>
+                        <button class="boton-item">Agregar al Carrito</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">Zapatilla Jordan</span>
+                        <img src="{% static 'ecommerce/img/zapatonike1.jpg' %}" alt="" class="img-item">
+                        <span class="precio-item">$54.000</span>
+                        <button class="boton-item">Agregar al Carrito</button>
+                    </div>
+                    <div class="item">
+                        <span class="titulo-item">Pantalón Levis</span>
+                        <img src="{% static 'ecommerce/img/levis2.jpg' %}" alt="" class="img-item">
+                        <span class="precio-item">$32.000</span>
+                        <button class="boton-item">Agregar al Carrito</button>
+                    </div>
+                
+                </div>
+                <!-- Carrito de Compras -->
+                <div class="carrito" id="carrito">
+                    <div class="header-carrito">
+                        <h2>Tu Carrito</h2>
+                    </div>
+        
+                    <div class="carrito-items">
+                    
+                    </div>
+                    <div class="carrito-total">
+                        <div class="fila">
+                            <strong>Tu Total</strong>
+                            <span class="carrito-precio-total">
+                                $120.000,00
+                            </span>
                         </div>
-                    </div>
-                </div>
-            </nav>
-        </div>
-        <!-- Main -->
-        <main class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <h5 class="mb-4">
-                        <i style="margin-right: 10px;" class="fa fa-credit-card mr-2"></i>
-                        Paga hasta 12 cuotas
-                    </h5>
-                    <hr>
-                    <h5 class="mb-4">
-                        <i style="margin-right: 10px;" class="fa fa-bars mr-2"></i>
-                        Tienda Online.
-                    </h5>
-
-                </div>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item text-dark opacity-5"><a href="">Inicio</a></li>
-                    <li class="breadcrumb-item text-dark active" aria-current="page">Tienda</li>
-                    <input class="buscadorTienda" type="search" placeholder="Buscar...">
-                    <button class="btn btn-search" type="submit">🔎</button>
-                </ol>
-                <div class="form-floating">
-                    <select class="form-select" id="selectOrden" aria-label="Floating label select example">
-                        <option selected>Ordenar por..</option>
-                        <option value="1">Mayor a menor</option>
-                        <option value="2">Menor a mayor</option>
-                        <option value="3">Alfabeticamente</option>
-                    </select>
-                    <label for="floatingSelect">Selecciona una respuesta</label>
-                </div>
-                <nav aria-label="breadcrumb">
-                    <div class="col-md-12">
-                        <h3 class="mt-3 mb-3 textShop">Todos los productos</h3>
-                    </div>
-                </nav>
-            </div>
-            </div>
-            <div class="container" id="productos"></div>
-        </main>
-        <!-- fin del main -->
-        <!-- LOGOS DE REDES SOCIALES -->
-        <div class="logoInstagramfixed">
-            <a target="_blank" href="https://www.instagram.com/nike/">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-        </div>
-        <div class="logofacebookfixed">
-            <a target="_blank" href="https://www.facebook.com/nike/?locale=es_LA">
-                <i class="fa-brands fa-facebook-f"></i>
-            </a>
-        </div>
-        <!-- FORMULARIO -->
-            <!--Forms-->
-    <div class="container forms ">
-        <form class="row g-3 needs-validation " novalidate>
-            <h2>Contactanos!</h2>
-            <div class="col-md-4">
-                <label for="validationDefault01" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="validationCustom01" required>
-                <div class="valid-feedback">
-                    Looks good!
-                </div>
-            </div>
-            <div class="col-12 col-md-4">
-                <label for="validationCustom02" class="form-label">Apellido</label>
-                <input type="text" class="form-control" id="validationCustom02" required>
-                <div class="valid-feedback">
-                    Looks good!
-                </div>
-            </div>
-            <div class="col-12 col-md-4">
-                <label for="validationCustomUsername" class="form-label">gmail</label>
-                <div class="input-group has-validation">
-                    <span class="input-group-text" id="inputGroupPrepend">@</span>
-                    <input type="text" class="form-control" id="validationCustomUsername"
-                        aria-describedby="inputGroupPrepend" required>
-                    <div class="invalid-feedback">
-                        Porfavor escribe un gmail
-                    </div>
-                </div>
-            </div>
-            <div class=" col-12 col-md-6">
-                <label for="validationCustom03" class="form-label">Ciudad</label>
-                <input type="text" class="form-control" id="validationCustom03" required>
-                <div class="invalid-feedback">
-                    Porfavor escribe una ciudad.
-                </div>
-            </div>
-            <div class="col-12 col-md-3">
-                <label for="validationCustom03" class="form-label">Provincia</label>
-                <input type="text" class="form-control" id="validationCustom03" required>
-                <div class="invalid-feedback">
-                    Porfavor escribe una provincia.
-                </div>
-            </div>
-            <div class="col-12 col-md-3">
-                <label for="validationCustom05" class="form-label">Codigo Postal</label>
-                <input type="text" class="form-control" id="validationCustom05">
-                <div class="invalid-feedback">
-                    Coloca un codigo valido.
-                </div>
-            </div>
-            <div class="col-12 col-md-6">
-            </div>
-            <div class="form-floating">
-                <textarea class="form-control" placeholder="Comentarios" id="floatingTextarea2"
-                    style="height: 100px"></textarea>
-                <label for="floatingTextarea2">Comentarios</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                <label class="form-check-label" for="invalidCheck">
-                    Aceptar terminos y condiciones.
-                </label>
-                <div class="invalid-feedback">
-                    Debes aceptar los terminos.
-                </div>
-            </div>
-            <div class="col-12 col-md-6">
-                <button class="btn btn-primary" type="submit">Enviar</button>
-            </div>
-        </form>
-    </div>
-    <!--Forms FIN-->
-    </main>
-    <!--::::Pie de Pagina::::::-->
-    <footer class="pie-pagina">
-        <div class="grupo-1">
-            <div class="box">
-                <figure>
-                    <a href="#">
-                    </a>
-                </figure>
-            </div>
-            <div class="box">
-                <h2>SOBRE NOSOTROS</h2>
-                <p>Somos una Empresa de dos amigos con conocimiento en nuestro tema.</p>
-                <p>No dudes en comunicarte con nosotros por cualquier consulta.</p>
-            </div>
-            <div class="box">
-                <h2>SIGUENOS</h2>
-                <div class="red-social">
-                    <a target="_blank" href="https://www.facebook.com/nike/?locale=es_LA" class="fa fa-facebook"></a>
-                    <a target="_blank" href="https://www.instagram.com/nike/"
-                        class="fa fa-instagram"></a>
-                    <a href="#" class="fa fa-twitter"></a>
-                    <a href="#" class="fa fa-youtube"></a>
-                </div>
-            </div>
+                        <button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
+    
+                        
+            </section>            
+            <!--FIN DE FORMULARIO-->
+            
         </div>
 
-        <div class="grupo-2">
-            <small>&copy; 2024 <b>alexanderymauricio</b> - Todos los Derechos Reservados.</small>
-        </div>
-    </footer>
-    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+    
+    
+
+
+
+  <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
         crossorigin="anonymous"></script>
@@ -257,10 +139,9 @@
     <!--SweetAlert-->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!--JS-->
-    <script src="/productos.json"></script>
-    <script src="../js/productos.js"></script>
-    <script src="../js/shop.js"></script>
-    <script src="../js/validation.js"></script>
+  
+    <script src="{% static  'ecommerce/js/shop.js' %}"></script>
+    <script src="{%  static 'ecommerce/js/validation.js'  %}"></script>
     
 
 </body>

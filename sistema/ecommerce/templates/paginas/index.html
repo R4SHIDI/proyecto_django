@@ -12,7 +12,7 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'ecommerce/css/bootstrap.min.css'%}">
     <link rel="stylesheet" href="{% static 'ecommerce/css/style.css'%}">
-    <link rel="icon" type="image/jpg" href="{% static 'ecommerce/imagenes/logo.png'%}">
+    <link rel="icon" type="image/jpg" href="{% static 'ecommerce/img/logo.png'%}">
     <title>KNIFTSTYLE</title>
 </head>
 
@@ -24,7 +24,7 @@
                 <nav class="navbar navbar-light">
                     <div class="container-fluid">
                         <a class="navbar-brand" href="#">
-                            <img src="../Imagenes/logo.png" alt="" width="90" height="80"
+                            <img src="{% static 'ecommerce/img/logo.png' %}" alt="" width="90" height="80"
                                 class="d-line-block align-text-center">
                             KNIFTSTYLE
 
@@ -45,9 +45,14 @@
                             <a class="nav-link" href="{% url 'tienda'%}">Tienda</a>
                         </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'contacto' %}">sobre nosotros</a>
+                                <a class="nav-link" href="{% url 'nosotros' %}">sobre nosotros</a>
                                 
                         </li>       
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'contacto' %}">Contactanos</a>
+                        </li>            
+
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'crud' %}">Crud</a>
                         </li>                    
@@ -70,13 +75,13 @@
                     <h2 class= "text-capitalize text-black">Excelentes descuentos
                     </h2>
                     <h1 class= "text-uppercase py-2 fw-bolds text-dark">Nuevas zapatillas</h1>
-                    <a href="../Paginas/tienda.html" class= "btn mt-3 text-uppercase">Compra Ahora</a>
+                    <a href="{% url 'tienda' %}" class= "btn mt-3 text-uppercase">Compra Ahora</a>
                 </div>
                 <div class= "text-center carousel-item">
                     <h2 class= "text-capitalize text-black">Mejores precios
                     </h2>
                     <h1 class= "text-uppercase py-2 fw-bolds text-black">Ponte a la moda</h1>
-                    <a href="../Paginas/tienda.html" class= "btn mt3- text-uppercase">Compra ahora</a>
+                    <a href="{% url 'tienda' %}" class= "btn mt3- text-uppercase">Compra ahora</a>
                 </div>
             </div>
 
@@ -106,14 +111,14 @@
             <!-- CARDS -->
             <div class="row justify-content-center">
                 <div class="card col-12 col-md6">
-                    <img src="../Imagenes/zapatillas3.jpg" class="card-img-top" alt="...">
+                    <img src="{% static 'ecommerce/img/zapatonike1.jpg' %}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-tittle">Contamos con la marca Converse</h5>
+                        <h5 class="card-tittle">Contamos con la marca NIKE</h5>
                         <a href="#" class="btn btn-outline-secondary">Compralo ahora</a>
                     </div>
                 </div>
                 <div class="card col-12 col-md-6">
-                    <img src="../Imagenes/polera1.jpg" class="card-img-top" alt="...">
+                    <img src="{% static 'ecommerce/img/polera1.jpg' %}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-tittle">Que esperas aprovecha</h5>
                         <p class="card-text"></p>
@@ -125,7 +130,7 @@
             <div data-aos="fade-up"
             data-aos-anchor-placement="center-center" class="row card2">
                 <div class="col-12 col-md-3">
-                     <img src="../Imagenes/hombre-probando-zapatillas.jpg" class="img-fluid card2" alt="Imagen-contacto">
+                     <img src="{% static 'ecommerce/img/hombre-probando-zapatillas.jpg' %}" class="img-fluid card2" alt="Imagen-contacto">
                 </div>
                 <div class="col-12 col-md-9">
                     <h2>Venta con acesoramiento online</h2>
@@ -141,13 +146,13 @@
                      <p>Encontraras las mejores zapatillas y ropas del momento y los más buscados, a la venta con precios increibles</p>
                 </div>
                 <div class="col-12 col-md-3">
-                   <img src="../Imagenes/logo.png" class="img-fluid card2" alt="Imagen-contacto">
+                   <img src="{% static 'ecommerce/img/logo.png' %}" class="img-fluid card2" alt="Imagen-contacto">
                 </div>
             </div>
              <div data-aos="fade-up"
             data-aos-anchor-placement="center-center" class="row card2">
               <div class="col-12 col-md-3">
-                <img src="../Imagenes/clientes felices.png" class="img-fluid card2" alt="Imagen-contacto">
+                <img src="{% static 'ecommerce/img/clientes felices.png' %}" class="img-fluid card2" alt="Imagen-contacto">
              </div>
                <div class="col-12 col-md-9">
                   <h2>Nuestra linea comprobada por nuestros clientes por más de 10 años de experiencia</h2>
@@ -177,7 +182,7 @@
         </div>
         <div class = "row g-3">
             <div class = "card8 border-0 col-md-6 col-lg-4 bg-transparent my-3">
-                <img src = "../Imagenes/hombre-probando-zapatillas.jpg" alt = "">
+                <img src = "{% static 'ecommerce/img/hombre-probando-zapatillas.jpg' %}" alt = "">
                 <div class = "card-budy px-0">
                     <h4 clases = "card-title">¿Sabes cuando se creo Nike?.</h4>
                     <p class = "card-text mt-3 text-muted">
@@ -194,7 +199,7 @@
             </div>
 
             <div class = "card9 border-0 col-md-6 col-lg-4 bg-transparent my-3">
-                <img src = "../Imagenes/ropa-1.jpg" alt = "">
+                <img src = "{% static 'ecommerce/img/ropa-1.jpg' %}" alt = "">
                 <div class = "card1-budy px-0">
                     <h4 clases = "card-title">¿Sabes cuanto contamina la ropa?.</h4>
                     <p class = "card-text mt-3 text-muted">La industria de la moda es una de las más contaminantes del mundo, contribuyendo aproximadamente al 10% de las emisiones globales de carbono. Además de contaminar el agua y el aire, genera grandes cantidades de residuos textiles. Los procesos de fabricación también utilizan productos químicos que contaminan los recursos naturales y afectan la salud de las comunidades cercanas a las fábricas..
@@ -209,7 +214,7 @@
             </div>
 
             <div class = "card9 border-0 col-md-6 col-lg-4 bg-transparent my-3">
-                <img src = "../Imagenes/zapatillas1.jpg" alt = "">
+                <img src = "{% static 'ecommerce/img/levis1.jpeg' %}" alt = "">
                 <div class = "card1-budy px-0">
                     <h4 clases = "card-title">¿Qué importancia tiene la ropa en la vida?.</h4>
                     <p class = "card-text mt-3 text-muted">Además de permitir asegurar el bienestar y proteger la intimidad sexual de los individuos, la ropa también indica la pertenencia a un grupo, a una ideología o a un status social. A la vez también puede convertirse en un elemento de comunicación por la atracción que suscita entre los individuos. CACHAI O NO CACHAI
@@ -232,7 +237,7 @@
                         <div class= "col-md-6 col-lg-4 row g-3">
                             <h3 class= "fs-5">Catalogo</h3>
                             <div class= "d-flex align-items-start justify-content-start">
-                                <img src = "../Imagenes/nike4.jpg" alt = "" class = "img-fluid pe-3 w-25">
+                                <img src = " {% static 'ecommerce/img/nike4.jpg' %}" alt = "" class = "img-fluid pe-3 w-25">
                                 <div>
                                     <p clases = "mb-0">Camisa Nike</p>
                                     <spam>$40.000</spam>
@@ -240,7 +245,7 @@
                             </div>
 
                             <div class = "d-flex align-items-start justify-content-start">
-                                <img src = "../Imagenes/zapatonike1.jpg" alt = "" class = "img-fluid pe-3 w-25">
+                                <img src = "{% static 'ecommerce/img/zapatonike1.jpg' %}" alt = "" class = "img-fluid pe-3 w-25">
                                 <div>
                                     <p clases = "mb-0">Zapatos de toda las tallas</p>
                                     <spam>$90.000</spam>
@@ -248,7 +253,7 @@
                             </div>
 
                             <div class = "d-flex align-items-start justify-content-start">
-                                <img src = "../Imagenes/levis2.jpg" alt = "" class = "img-fluid pe-3 w-25">
+                                <img src = "{% static 'ecommerce/img/levis2.jpg' %}" alt = "" class = "img-fluid pe-3 w-25">
                                 <div>
                                     <p clases = "mb-0">Pantalon Levis</p>
                                     <spam>$35.000</spam>
@@ -362,8 +367,8 @@
         crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <!-- Script de validación personalizado -->
-  <script src="../js/validation.js"></script>
-  <script src="../js/script.js"></script>
+  <script src="{% static 'ecommerce/js/validation.js' %}"></script>
+  <script src="{% static 'ecommerce/js/script.js' %}"></script>
     <script>
         AOS.init();
     </script>
