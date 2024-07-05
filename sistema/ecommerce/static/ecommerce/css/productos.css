@@ -6,6 +6,7 @@
     margin: 0;
     padding:0;
     font-family: 'Open Sans';
+    overflow: visible;
 }
 
 
@@ -32,8 +33,7 @@ header h1{
     margin: auto;
     display: flex;
     justify-content: space-between;
-    /* oculto lo que queda fuera del .contenedor */
-    contain: paint;
+   
 }
 /* SECCION CONTENEDOR DE ITEMS */
 .contenedor .contenedor-items{

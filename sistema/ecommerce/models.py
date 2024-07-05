@@ -34,14 +34,7 @@ class Contacto(models.Model):
 
 # nuevoooo ventas no servir, (BORRAR)
 
-class Venta(models.Model):
-    # Define los campos de tu modelo de ventas
-    producto = models.CharField(max_length=100)
-    cantidad = models.IntegerField()
-    precio_unitario = models.DecimalField(max_digits=10, decimal_places=2)
-    fecha_venta = models.DateField(auto_now_add=True)
-    # Añade otros campos según tus necesidades
-    
+
 
 
 

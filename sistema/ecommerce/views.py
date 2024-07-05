@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect 
 from django.http import HttpResponse
-from .models import Contacto, Producto, Venta
-from .forms import ProductoForm
+from .models import Contacto, Producto
+from .forms import ProductoForm, CustomUserCreationForm
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
 
-##ventas###
-from .forms import VentaForm
+
+
 
 
 # Create your views here.
@@ -36,11 +38,11 @@ def registrar(request):
 def nosotros(request):
     return render(request, 'paginas/nosotros.html')
 
-def login(request):
-    return render(request, 'paginas/login.html')
+def logueo(request):
+    return render(request, 'paginas/logueo.html')
 
-def registro (request):
-    return render(request, 'paginas/registro.html')
+def registratee (request):
+    return render(request, 'paginas/registratee.html')
 
 def tienda (request):
     return render(request, 'paginas/tienda.html')
@@ -72,43 +74,23 @@ def eliminar(request, id):
 def vista(request):
     return render(request, 'crud/vista.html')
 
+##registro de usuario de auth django con form entregado por el framework validaciones
+def registro(request):
+    data = {
+        'form': CustomUserCreationForm()
+    }
 
-
-
-######nuevo vistas para la ventas######
-
-def lista_ventas(request):
-    ventas = Venta.objects.all()
-    return render(request, 'crud/lista_ventas.html', {'ventas': ventas})
-
-def crear_venta(request):
     if request.method == 'POST':
-        form = VentaForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('lista_ventas')
-    else:
-        form = VentaForm()
-    return render(request, 'crud/crear_venta.html', {'form': form})
+        formulario = CustomUserCreationForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            user = authenticate(username=formulario.cleaned_data["username"], password=formulario.cleaned_data["password1"])
+            login(request, user)
+            messages.success(request,"te has registrado correctamente")
+            #redirigo a la vista
+            return redirect(to='vista')
+            print("Redirigiendo a ")
+            data["form"] = formulario
 
-def ver_venta(request, pk):
-    venta = get_object_or_404(Venta, pk=pk)
-    return render(request, 'crud/ver_venta.html', {'venta': venta})
+    return render(request, 'registration/registro.html', data)
 
-def editar_venta(request, pk):
-    venta = get_object_or_404(Venta, pk=pk)
-    if request.method == 'POST':
-        form = VentaForm(request.POST, instance=venta)
-        if form.is_valid():
-            form.save()
-            return redirect('lista_ventas')
-    else:
-        form = VentaForm(instance=venta)
-    return render(request, 'crud/editar_venta.html', {'form': form})
-
-def eliminar_venta(request, pk):
-    venta = get_object_or_404(Venta, pk=pk)
-    if request.method == 'POST':
-        venta.delete()
-        return redirect('lista_ventas')
-    return render(request, 'crud/eliminar_venta.html', {'venta': venta})

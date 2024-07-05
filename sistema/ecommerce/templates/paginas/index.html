@@ -16,6 +16,7 @@
     <title>KNIFTSTYLE</title>
 </head>
 
+
 <body>
     <!--navbar-->
     <div class="bg-nav fixed-top">
@@ -52,17 +53,20 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'contacto' %}">Contactanos</a>
                         </li>            
-
+                        
+                      <!-- Aquí va enlace del crud deshabilitado de momento -->
+                        <!-- 
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'crud' %}">Crud</a>
-                        </li>                    
+                        </li>
+                        -->          
                         
 
                     </ul>
 
 
                 </div>
-                <a class="btn btn-navbar btn-primary" href="{% url 'login' %}" role="button">Ingresa</a>
+                <a class="btn btn-navbar btn-primary" href="{% url 'logueo' %}" role="button">Ingresa</a>
             </div>   
          
         </nav> 

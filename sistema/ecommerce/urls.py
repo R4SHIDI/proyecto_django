@@ -10,15 +10,15 @@ urlpatterns = [
     path('registrar', views.registrar, name='registrar'),
     path('nosotros', views.nosotros, name='nosotros'),
     path('crud', views.crud, name='crud'),
-    path('login', views.login, name='login'),
+    path('logueo', views.logueo, name='logueo'),
     path('tienda', views.tienda, name='tienda'),
-    path('registro', views.registro, name='registro'),
+    path('registratee', views.registratee, name='registratee'),
     path('crud/crear', views.crear, name='crear'),
     path('crud/editar', views.editar, name='editar'),
-    path('crud/vista', views.vista, name='vista'),
+    path('vista/', views.vista, name='vista'),
     path('eliminar/<int:id>', views.eliminar, name='eliminar'),
     path('productos/editar/<int:id>', views.editar, name='editar'),
-    #url de ventas##
+    path('registro/', views.registro, name='registro'),
     
   
 

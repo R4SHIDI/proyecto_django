@@ -1,5 +1,6 @@
 from django import forms
-from .models import Producto, Venta
+from .models import Producto
+from django.contrib.auth.forms import UserCreationForm
 
 
 class ProductoForm(forms.ModelForm):
@@ -7,9 +8,5 @@ class ProductoForm(forms.ModelForm):
         model = Producto
         fields = '__all__'
 
-# BORRAR SI NO SIRVE###
-
-class VentaForm(forms.ModelForm):
-    class Meta:
-        model = Venta
-        fields = '__all__'  # O puedes especificar los campos que quieres incluir en el formulario
+class CustomUserCreationForm(UserCreationForm):
+    pass

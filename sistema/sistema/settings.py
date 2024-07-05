@@ -26,6 +26,9 @@ SECRET_KEY = 'django-insecure-t0d*zz7@$%%%782+^bv@-b(-ff^3=2i#r)ycqng)i8r3g%sg=b
 DEBUG = True
 
 ALLOWED_HOSTS = []
+#Redirige al autenticarse o cerrar session
+LOGIN_REDIRECT_URL = 'vista'
+LOGOUT_REDIRECT_URL = '/'
 
 
 # Application definition
