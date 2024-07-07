@@ -33,7 +33,12 @@ urlpatterns = [
     path('eliminar_marca/<int:id>', views.eliminar_marca, name='eliminar_marca'),
     path('marca/editar_marca/<int:id>/', views.editar_marca, name='editar_marca'),
 
-
+#$$$$$URLS DE FACTURA@@@@@@@
+    path('factura',views.factura, name='factura'),
+    path('factura/crear_factura',views.crear_factura, name='crear_factura'),
+    path('factura/editar_factura',views.editar_factura, name='editar_factura'),
+    path('eliminar_factura/<int:id>', views.eliminar_factura, name='eliminar_factura'),
+    path('factura/editar_factura/<int:id>/', views.editar_factura, name='editar_factura'),
 
 
 

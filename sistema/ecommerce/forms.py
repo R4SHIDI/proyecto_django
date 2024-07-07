@@ -1,5 +1,5 @@
 from django import forms
-from .models import Producto, Clientesss, Marca
+from .models import Producto, Clientesss, Marca, Factura
 from django.contrib.auth.forms import UserCreationForm
 
 
@@ -24,6 +24,17 @@ class MarcaForm(forms.ModelForm):
     class Meta:
         model = Marca
         fields = '__all__'
+
+
+
+####······FACTURA FORM FORMULARIO QUE PASARA A CREAR EDITAR Y ELIMINAR!!!!    
+
+####crud marca #marca
+class FacturaForm(forms.ModelForm):
+    class Meta:
+        model = Factura
+        fields = '__all__'
+    
 
 class CustomUserCreationForm(UserCreationForm):
     pass

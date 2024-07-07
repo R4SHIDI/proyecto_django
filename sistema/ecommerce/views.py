@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect 
 from django.http import HttpResponse
-from .models import Contacto, Producto, Clientesss, Marca
-from .forms import ProductoForm, CustomUserCreationForm, ClientesForm, MarcaForm
+from .models import Contacto, Producto, Clientesss, Marca, Factura
+from .forms import ProductoForm, CustomUserCreationForm, ClientesForm, MarcaForm, FacturaForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 
@@ -151,3 +151,33 @@ def eliminar_marca(request, id):
     marca = Marca.objects.get(id=id)
     marca.delete()
     return redirect('marca')
+
+
+
+#########CRUD FACTURAS @@@@@@@2
+
+def factura(request):
+    facturas = Factura.objects.all()
+    return render(request, 'factura/visual.html', {'facturas': facturas}) 
+
+def crear_factura(request):
+    formulario = FacturaForm(request.POST or None, request.FILES or None)
+    if formulario.is_valid():
+        formulario.save()
+        #recepcionar los datos 
+        return redirect('factura')
+    return render(request, 'factura/crear_factura.html', {'formulario': formulario})
+
+
+def editar_factura(request, id):
+    factura = Factura.objects.get(id=id)
+    formulario = FacturaForm(request.POST or None, request.FILES or None, instance=factura)
+    if formulario.is_valid() and request.POST:
+        formulario.save()
+        return redirect('factura')
+    return render(request, 'factura/editar_factura.html', {'formulario': formulario})
+
+def eliminar_factura(request, id):
+    factura = Factura.objects.get(id=id)
+    factura.delete()
+    return redirect('factura')
