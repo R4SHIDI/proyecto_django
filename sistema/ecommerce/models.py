@@ -84,7 +84,18 @@ class Marca(models.Model):
     id = models.AutoField(primary_key=True)
     marca = models.CharField(max_length=20, verbose_name='Marca')
     categoria = models.CharField(max_length=20, verbose_name='Categoria')
-    precio = models.TextField(max_length=225, verbose_name='Precio')     
+    precio = models.TextField(max_length=225, verbose_name='Precio')
+    imagen = models.ImageField(upload_to='imagenes/', verbose_name='Imagen', null=True, blank=True) 
+    
+    def __str__(self):
+        fila = "Marca: " + self.marca + " - " + "Categoria: " + self.categoria+" "+ self.precio + " - " + " Precio "
+        return fila 
+    
+
+
+    def delete(self, using=None, keep_parents=False):
+        self.imagen.storage.delete(self.imagen.name)
+        super().delete() # Nuevo campo de imagen     
 
 
 

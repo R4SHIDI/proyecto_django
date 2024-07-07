@@ -28,7 +28,7 @@
                         <th>Marca</th>
                         <th>Categoría</th>
                         <th>Precio</th>
-                        <th>Acciones</th>
+                  
                     </tr>
                 </thead>
                 <tbody>
@@ -38,7 +38,12 @@
                         <td>{{ marca.marca }}</td>
                         <td>{{ marca.categoria }}</td>
                         <td>{{ marca.precio }}</td>
+                        <td> 
+                            
+                            <img src="{{marca.imagen.url}}" height="80" />
                         <td>
+                           
+
                             <a class="btn btn-info" href="{% url 'editar_marca' marca.id %}" role="button">Editar</a>
                             <a class="btn btn-danger" href="{% url 'eliminar_marca' marca.id %}" role="button">Borrar</a>
                         </td>
