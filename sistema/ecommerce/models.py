@@ -106,9 +106,9 @@ class Marca(models.Model):
 class Factura(models.Model):
     id = models.AutoField(primary_key=True)
     fecha = models.CharField(max_length=250, verbose_name='Fecha')
-    nombre = models.CharField(max_length=250, verbose_name='Rut')
-    Monto = models.CharField(max_length=250, verbose_name='Monto')
+    nombre = models.CharField(max_length=250, verbose_name='Nombre')
+    monto = models.CharField(max_length=250, verbose_name='Monto')
      
     def __str__(self):
-        fila = "Fecha: " + self.fecha + " - " + "Rut: " + self.rut+" "+ self.precio + " - " + " Precio "
+        fila = "Fecha: " + self.fecha + " - " + "Nombre: " + self.rut+" "+ self.precio + " - " + " Precio "
         return fila 

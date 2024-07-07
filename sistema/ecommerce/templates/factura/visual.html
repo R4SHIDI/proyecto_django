@@ -5,65 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lista de facturas</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
- 
 </head>
 <body>
     <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="nav navbar-nav">
-            <a class="nav-item nav-link active" href="">Inicio</a >
-            <a class="nav-item nav-link" href="#"></a>
-
-        </div> 
+            <a class="nav-item nav-link active" href="#">Inicio</a>
+            <!-- Agrega aquí más enlaces según sea necesario -->
+        </div>
     </nav>
     
-            <div class="card">
-                <div class="card-header">
-                    <a name="" id=""class="btn btn-success" href="{% url 'crear_factura' %}" role="button">Agregar NUEVA FACTURA</a>
-                </div>
-                <div class="card-body">
-                    <h4 class="card-title">FACTURAS</h4>
-                   
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Fecha</th>
-                                <th>Nombre</th>
-                                <th>Monto</th>
-                                <th>Acciones</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!--no me trae el monto extraño -->
-                            {% for factura in facturas %}
-                            <tr>
-                                <td>{{factura.id}}</td>
-                                <td>{{factura.fecha}}</td>
-                                <td>{{factura.nombre}}</td>
-                                <td>{{factura.monto}}</td>
-                                <td>  
-                                  <a name="" id="" class="btn btn-info" href="{% url 'editar_factura'  factura.id %} "role="button">Editar</a>
-                                  | 
-                                   <a name="" id="" class="btn btn-danger" href="{% url 'eliminar_factura'  factura.id %}"role="button">Borrar</a>
-
-                                </td>
-                            </tr>   
-                            
-                             {% endfor %}
-                        </tbody>   
-                    </table>  
-                </div> 
-            </div>                
-                
-
-                    
-              
-
-
-
-
-
-
-
-
+    <div class="card">
+        <div class="card-header">
+            <a class="btn btn-success" href="{% url 'crear_factura' %}" role="button">Agregar nueva factura</a>
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">Facturas</h4>
+           
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Fecha</th>
+                        <th>Nombre</th>
+                        <th>Monto</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for factura in facturas %}
+                    <tr>
+                        <td>{{ factura.id }}</td>
+                        <td>{{ factura.fecha }}</td>
+                        <td>{{ factura.nombre }}</td>
+                        <td>{{ factura.monto }}</td>
+                        <td>  
+                            <a class="btn btn-info" href="{% url 'editar_factura' factura.id %}" role="button">Editar</a>
+                            | <!-- Agrega un separador -->
+                            <a class="btn btn-danger" href="{% url 'eliminar_factura' factura.id %}" role="button">Borrar</a>
+                        </td>
+                    </tr>   
+                    {% endfor %}
+                </tbody>   
+            </table>  
+        </div> 
+    </div>
+    
+    <!-- Scripts de Bootstrap y otros necesarios -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-2qdCv2oVvRNmVZvs+q84ZHqK2xfjGSEmgnEZpJ/7WIqT5CZh/gG3sPke7NVjK4/N" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+</body>
+</html>
