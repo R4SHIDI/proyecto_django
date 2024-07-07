@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect 
 from django.http import HttpResponse
-from .models import Contacto, Producto, Clientesss
-from .forms import ProductoForm, CustomUserCreationForm, ClientesForm
+from .models import Contacto, Producto, Clientesss, Marca
+from .forms import ProductoForm, CustomUserCreationForm, ClientesForm, MarcaForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 
@@ -123,7 +123,31 @@ def eliminar_clientes(request, id):
     cliente.delete()
     return redirect('clientes')
 
-    
+    #######
 
 #CRUD MARCA  borrar todo si no sirve 
+def marca(request):
+    marcas = Marca.objects.all()  # Recuperar todas las marcas desde la base de datos
+    return render(request, 'marca/principal.html', {'marcas': marcas})  # Pasar 'marcas' en lugar de 'marca'
 
+def crear_marca(request):
+    formulario = MarcaForm(request.POST or None, request.FILES or None)
+    if formulario.is_valid():
+        formulario.save()
+        #recepcionar los datos 
+        return redirect('marca')
+    return render(request, 'marca/crear_marca.html', {'formulario': formulario})
+
+
+def editar_marca(request, id):
+    marca = Marca.objects.get(id=id)
+    formulario = MarcaForm(request.POST or None, request.FILES or None, instance=marca)
+    if formulario.is_valid() and request.POST:
+        formulario.save()
+        return redirect('marca')
+    return render(request, 'marca/editar_marca.html', {'formulario': formulario})
+
+def eliminar_marca(request, id):
+    marca = Marca.objects.get(id=id)
+    marca.delete()
+    return redirect('marca')

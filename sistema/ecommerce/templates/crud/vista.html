@@ -11,7 +11,7 @@
     <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="nav navbar-nav">
             <a class="nav-item nav-link active" href="{% url 'index'%}">Inicio</a >
-            <a class="nav-item nav-link" href="#">Productos</a>
+            <a class="nav-item nav-link" href="{% url 'marca' %}">Marcas</a>
             
             
             {% if user.is_authenticated %}

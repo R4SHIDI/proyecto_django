@@ -26,6 +26,13 @@ urlpatterns = [
     path('eliminar_clientes/<int:id>', views.eliminar_clientes, name='eliminar_clientes'),
     path('clientes/editar_clientes/<int:id>/', views.editar_clientes, name='editar_clientes'),
 
+#@@@@@@@@@@@@@@@URLS DE CRUD MARCA@@@@@@@@################
+    path('marca',views.marca, name='marca'),
+    path('marca/crear_marca',views.crear_marca, name='crear_marca'),
+    path('marca/editar_marca',views.editar_marca, name='editar_marca'),
+    path('eliminar_marca/<int:id>', views.eliminar_marca, name='eliminar_marca'),
+    path('marca/editar_marca/<int:id>/', views.editar_marca, name='editar_marca'),
+
 
 
 

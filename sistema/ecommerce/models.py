@@ -79,8 +79,12 @@ class Clientesss(models.Model):
      return self.nombre+" "+self.apellido+" "+self.direccion
 
    
-
-     
+##models de marca###
+class Marca(models.Model):
+    id = models.AutoField(primary_key=True)
+    marca = models.CharField(max_length=20, verbose_name='Marca')
+    categoria = models.CharField(max_length=20, verbose_name='Categoria')
+    precio = models.TextField(max_length=225, verbose_name='Precio')     
 
 
 
