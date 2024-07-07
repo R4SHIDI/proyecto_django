@@ -1,7 +1,9 @@
 from django.contrib import admin
-from. models import Producto, Contacto
+from. models import Producto, Contacto, Clientesss
 # Register your models here.
 admin.site.register(Producto)
+admin.site.register(Clientesss)
+
 
 
 #GENERO CLASE PARA DESPLIGUE DE LAS TABLAS DE CONTACTOS

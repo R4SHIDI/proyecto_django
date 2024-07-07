@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
   <title>Lista de productos</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+ 
 </head>
 <body>
     <nav class="navbar navbar-expand navbar-light bg-light">
@@ -14,19 +15,18 @@
             
             
             {% if user.is_authenticated %}
-            
-            <!-- <li>
-                <a href="{% url 'logout' %}">Cerrar sesión</a>
+            <li>
+              <!--   <a href="{% url 'logout' %}">Cerrar sesión</a>
             </li> -->
                 
                 <!-- Formulario para logout -->
                <form id="logout-form" action="{% url 'logout' %}" method="POST" style="display: none;">
                     {% csrf_token %}
                 </form>
-                <a href="#" onclick="document.getElementById('logout-form').submit();">Cerrar sesión</a> |
+                <a href="#" onclick="document.getElementById('logout-form').submit();">Cerrar sesión</a> !
             </li>
             <li>
-                <a href="#">@{{user.username}}</a>
+                <a href="#">{{user.username}}</a>
             </li> 
             {% else %}
             

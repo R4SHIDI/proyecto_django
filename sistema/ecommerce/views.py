@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect 
 from django.http import HttpResponse
-from .models import Contacto, Producto
-from .forms import ProductoForm, CustomUserCreationForm
+from .models import Contacto, Producto, Clientesss
+from .forms import ProductoForm, CustomUserCreationForm, ClientesForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 
@@ -93,4 +93,37 @@ def registro(request):
             data["form"] = formulario
 
     return render(request, 'registration/registro.html', data)
+
+
+
+#cliente crud LA VARIABLE {'clientes': clientes})  PUEDE ESTAR MALA
+def clientes(request):
+    clientes = Clientesss.objects.all()
+    return render(request, 'clientes/inicio.html', {'clientes': clientes}) 
+
+def crear_cliente(request):
+    formulario = ClientesForm(request.POST or None, request.FILES or None)
+    if formulario.is_valid():
+        formulario.save()
+        #recepcionar los datos 
+        return redirect('clientes')
+    return render(request, 'clientes/crear_cliente.html', {'formulario': formulario})
+
+
+def editar_clientes(request, id):
+    cliente = Clientesss.objects.get(id=id)
+    formulario = ClientesForm(request.POST or None, request.FILES or None, instance=cliente)
+    if formulario.is_valid() and request.POST:
+        formulario.save()
+        return redirect('clientes')
+    return render(request, 'clientes/editar_cliente.html', {'formulario': formulario})
+
+def eliminar_clientes(request, id):
+    cliente = Clientesss.objects.get(id=id)
+    cliente.delete()
+    return redirect('clientes')
+
+    
+
+#CRUD MARCA  borrar todo si no sirve 
 

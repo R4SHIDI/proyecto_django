@@ -19,8 +19,15 @@ urlpatterns = [
     path('eliminar/<int:id>', views.eliminar, name='eliminar'),
     path('productos/editar/<int:id>', views.editar, name='editar'),
     path('registro/', views.registro, name='registro'),
-    
-  
+    #cliente crud
+    path('clientes',views.clientes, name='clientes'),
+    path('clientes/crear_cliente',views.crear_cliente, name='crear_cliente'),
+    path('clientes/editar_clientes',views.editar_clientes, name='editar_clientes'),
+    path('eliminar_clientes/<int:id>', views.eliminar_clientes, name='eliminar_clientes'),
+    path('clientes/editar_clientes/<int:id>/', views.editar_clientes, name='editar_clientes'),
+
+
+
 
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
