@@ -96,7 +96,7 @@ def registro(request):
 
 
 
-#cliente crud LA VARIABLE {'clientes': clientes})  PUEDE ESTAR MALA
+#cliente crud LA VARIABLE 
 def clientes(request):
     clientes = Clientesss.objects.all()
     return render(request, 'clientes/inicio.html', {'clientes': clientes}) 
@@ -125,7 +125,7 @@ def eliminar_clientes(request, id):
 
     #######
 
-#CRUD MARCA  borrar todo si no sirve 
+#CRUD MARCA   
 def marca(request):
     marcas = Marca.objects.all()  # Recuperar todas las marcas desde la base de datos
     return render(request, 'marca/principal.html', {'marcas': marcas})  # Pasar 'marcas' en lugar de 'marca'
