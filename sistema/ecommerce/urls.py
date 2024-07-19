@@ -40,6 +40,14 @@ urlpatterns = [
     path('eliminar_factura/<int:id>', views.eliminar_factura, name='eliminar_factura'),
     path('factura/editar_factura/<int:id>/', views.editar_factura, name='editar_factura'),
 
+#@@@@crud venta urls
 
+
+
+    path('venta',views.venta, name='venta'),
+    path('venta/crear_venta',views.crear_venta, name='crear_venta'),
+    path('venta/editar_venta',views.editar_venta, name='editar_venta'),
+    path('eliminar_venta/<int:id>', views.eliminar_venta, name='eliminar_venta'),
+    path('venta/editar_venta/<int:id>/', views.editar_venta, name='editar_venta'),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

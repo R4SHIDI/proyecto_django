@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de ventas</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand navbar-light bg-light">
+        <div class="nav navbar-nav">
+            <a class="nav-item nav-link active" href="#">Inicio</a>
+            <!-- Agrega aquí más enlaces según sea necesario -->
+
+            {% if user.is_authenticated %}
+            <li>
+              <!--   <a href="{% url 'logout' %}">Cerrar sesión</a>
+            </li> -->
+                
+                <!-- Formulario para logout -->
+               <form id="logout-form" action="{% url 'logout' %}" method="POST" style="display: none;">
+                    {% csrf_token %}
+                </form>
+                <a href="#" onclick="document.getElementById('logout-form').submit();">Cerrar sesión</a> !
+            </li>
+            <li>
+                <a href="#">{{user.username}}</a>
+            </li> 
+            {% else %}
+            
+            <li>
+                <a href="{% url 'login' %}">iniciar sesion</a>  
+            </li>
+
+            {% endif %}
+           
+
+        </div>
+    </nav>
+    
+    <div class="card">
+        <div class="card-header">
+            <a class="btn btn-success" href="{% url 'crear_venta' %}" role="button">Agregar nueva venta</a>
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">Ventas</h4>
+           
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for venta in ventas %}
+                    <tr>
+                        <td>{{ venta.id }}</td>
+                        <td>{{ venta.producto }}</td>
+                        <td>{{ venta.cantidad }}</td>
+                        <td>  
+                            <a class="btn btn-info" href="{% url 'editar_venta' venta.id %}" role="button">Editar</a>
+                            | <!-- Agrega un separador -->
+                            <a class="btn btn-danger" href="{% url 'eliminar_venta' venta.id %}" role="button">Borrar</a>
+                        </td>
+                    </tr>   
+                    {% endfor %}
+                </tbody>   
+            </table>  
+        </div> 
+    </div>
+    
+    <!-- Scripts de Bootstrap y otros necesarios -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-2qdCv2oVvRNmVZvs+q84ZHqK2xfjGSEmgnEZpJ/7WIqT5CZh/gG3sPke7NVjK4/N" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+</body>
+</html>

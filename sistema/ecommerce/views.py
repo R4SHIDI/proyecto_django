@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect 
 from django.http import HttpResponse
-from .models import Contacto, Producto, Clientesss, Marca, Factura
-from .forms import ProductoForm, CustomUserCreationForm, ClientesForm, MarcaForm, FacturaForm
+from .models import Contacto, Producto, Clientesss, Marca, Factura, Ventas
+from .forms import ProductoForm, CustomUserCreationForm, ClientesForm, MarcaForm, FacturaForm, VentasForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -187,3 +187,33 @@ def eliminar_factura(request, id):
     factura = Factura.objects.get(id=id)
     factura.delete()
     return redirect('factura')
+
+
+@login_required
+#CRUD VENTA@@@@@@
+
+def venta(request):
+    ventas = Ventas.objects.all()  # Recuperar todas desde la base de datos
+    return render(request, 'venta/portal.html', {'ventas': ventas})  
+
+def crear_venta(request):
+    formulario = VentasForm(request.POST or None, request.FILES or None)
+    if formulario.is_valid():
+        formulario.save()
+        #recepcionar los datos 
+        return redirect('venta')
+    return render(request, 'venta/crear_venta.html', {'formulario': formulario})
+
+
+def editar_venta(request, id):
+    venta = Ventas.objects.get(id=id)
+    formulario = MarcaForm(request.POST or None, request.FILES or None, instance=marca)
+    if formulario.is_valid() and request.POST:
+        formulario.save()
+        return redirect('marca')
+    return render(request, 'venta/editar_venta.html', {'formulario': formulario})
+
+def eliminar_venta(request, id):
+    venta = Ventas.objects.get(id=id)
+    venta.delete()
+    return redirect('venta')

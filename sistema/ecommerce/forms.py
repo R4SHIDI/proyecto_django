@@ -1,5 +1,5 @@
 from django import forms
-from .models import Producto, Clientesss, Marca, Factura
+from .models import Producto, Clientesss, Marca, Factura, Ventas
 from django.contrib.auth.forms import UserCreationForm
 
 
@@ -34,6 +34,15 @@ class FacturaForm(forms.ModelForm):
     class Meta:
         model = Factura
         fields = '__all__'
+
+
+
+####crud  venta
+class VentasForm(forms.ModelForm):
+    class Meta:
+        model = Ventas
+        fields = '__all__'
+    
     
 
 class CustomUserCreationForm(UserCreationForm):
