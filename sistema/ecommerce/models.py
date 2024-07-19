@@ -1,6 +1,8 @@
 from django.db import models
+from django.contrib.auth.decorators import login_required
 
 # Create your models here.
+
 class Producto(models.Model):
     id = models.AutoField(primary_key=True)
     marca = models.CharField(max_length=100, verbose_name='Marca')
@@ -20,7 +22,7 @@ class Producto(models.Model):
         self.imagen.storage.delete(self.imagen.name)
         super().delete()
 
-
+     
 class Contacto(models.Model):
     id_genero = models.AutoField(db_column='idContacto', primary_key=True)
     nombre    = models.CharField(max_length=20)
@@ -48,6 +50,7 @@ class Clientesss(models.Model):
 
    
 ##models de marca###
+
 class Marca(models.Model):
     id = models.AutoField(primary_key=True)
     marca = models.CharField(max_length=20, verbose_name='Marca')
@@ -88,10 +91,9 @@ class Factura(models.Model):
 
 class Ventas(models.Model):
     id = models.AutoField(primary_key=True)
-    fecha = models.CharField(max_length=250, verbose_name='Fecha')
-    nombre = models.CharField(max_length=250, verbose_name='Nombre')
-    monto = models.CharField(max_length=250, verbose_name='Monto')
+    producto = models.CharField(max_length=250, verbose_name='Producto')
+    cantidad = models.CharField(max_length=250, verbose_name='Cantidad')
      
     def __str__(self):
-        fila = "Fecha: " + self.fecha + " - " + "Nombre: " + self.rut+" "+ self.precio + " - " + " Precio "
+        fila = "Producto: " + self.producto+" "+ self.cantidad + " - " + " Cantidad "
         return fila 

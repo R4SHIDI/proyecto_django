@@ -29,7 +29,7 @@ class MarcaForm(forms.ModelForm):
 
 ####······FACTURA FORM FORMULARIO QUE PASARA A CREAR EDITAR Y ELIMINAR!!!!    
 
-####crud marca #marca
+####crud 
 class FacturaForm(forms.ModelForm):
     class Meta:
         model = Factura

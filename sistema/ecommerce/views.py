@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import Contacto, Producto, Clientesss, Marca, Factura
 from .forms import ProductoForm, CustomUserCreationForm, ClientesForm, MarcaForm, FacturaForm
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 
@@ -47,6 +48,7 @@ def registratee (request):
 def tienda (request):
     return render(request, 'paginas/tienda.html')
 
+@login_required
 def crud(request):
     Productos = Producto.objects.all()
     return render(request, 'crud/vista.html', {'productos':Productos})
@@ -71,6 +73,8 @@ def eliminar(request, id):
     producto.delete()
     return redirect('crud')
 
+
+@login_required
 def vista(request):
     return render(request, 'crud/vista.html')
 
@@ -95,11 +99,12 @@ def registro(request):
     return render(request, 'registration/registro.html', data)
 
 
-
+@login_required
 #cliente crud LA VARIABLE 
 def clientes(request):
     clientes = Clientesss.objects.all()
     return render(request, 'clientes/inicio.html', {'clientes': clientes}) 
+
 
 def crear_cliente(request):
     formulario = ClientesForm(request.POST or None, request.FILES or None)
@@ -118,13 +123,14 @@ def editar_clientes(request, id):
         return redirect('clientes')
     return render(request, 'clientes/editar_cliente.html', {'formulario': formulario})
 
+
 def eliminar_clientes(request, id):
     cliente = Clientesss.objects.get(id=id)
     cliente.delete()
     return redirect('clientes')
 
     #######
-
+@login_required
 #CRUD MARCA   
 def marca(request):
     marcas = Marca.objects.all()  # Recuperar todas las marcas desde la base de datos
@@ -155,7 +161,7 @@ def eliminar_marca(request, id):
 
 
 #########CRUD FACTURAS @@@@@@@2
-
+@login_required
 def factura(request):
     facturas = Factura.objects.all()
     return render(request, 'factura/visual.html', {'facturas': facturas}) 

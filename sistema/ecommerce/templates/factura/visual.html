@@ -11,6 +11,30 @@
         <div class="nav navbar-nav">
             <a class="nav-item nav-link active" href="#">Inicio</a>
             <!-- Agrega aquí más enlaces según sea necesario -->
+
+            {% if user.is_authenticated %}
+            <li>
+              <!--   <a href="{% url 'logout' %}">Cerrar sesión</a>
+            </li> -->
+                
+                <!-- Formulario para logout -->
+               <form id="logout-form" action="{% url 'logout' %}" method="POST" style="display: none;">
+                    {% csrf_token %}
+                </form>
+                <a href="#" onclick="document.getElementById('logout-form').submit();">Cerrar sesión</a> !
+            </li>
+            <li>
+                <a href="#">{{user.username}}</a>
+            </li> 
+            {% else %}
+            
+            <li>
+                <a href="{% url 'login' %}">iniciar sesion</a>  
+            </li>
+
+            {% endif %}
+           
+
         </div>
     </nav>
     

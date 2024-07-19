@@ -17,7 +17,6 @@ class ContactoAdmin(admin.ModelAdmin):
 admin.site.register(Contacto, ContactoAdmin)
 
 
-#modelo de clase ventas 
 
 
 

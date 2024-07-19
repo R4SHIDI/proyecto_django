@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 #Redirige al autenticarse o cerrar session
 LOGIN_REDIRECT_URL = 'vista'
-LOGOUT_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = 'index'
 
 
 # Application definition
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'sistema.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
